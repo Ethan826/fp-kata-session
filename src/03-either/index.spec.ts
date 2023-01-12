@@ -1,6 +1,7 @@
-import type { Either } from "fp-ts/Either";
-import { chain, left, map, right } from "fp-ts/Either";
 import { pipe } from "fp-ts/lib/function";
+
+import type { Either } from "./no-peeking";
+import { chain, left, map, right } from "./no-peeking";
 
 const increment: (num: number) => number = (num) => num + 1;
 
