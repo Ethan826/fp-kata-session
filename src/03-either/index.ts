@@ -2,6 +2,8 @@
 // Part 1: Errors aren't part of the types
 // =============================================================================
 
+// Learning goal: See how errors don't participate in the type system.
+
 class CompletelyUnexpectedError extends Error {}
 
 const innocentAddition: (a: number, b: number) => number = (a, b) => {
@@ -21,6 +23,8 @@ console.log("innocentAddition", innocentAddition(3, 7));
 // =============================================================================
 // Part 2: Errors are go to (considered harmful)
 // =============================================================================
+
+// Learning goal: See how errors lead to hard-to-reason-about control flow.
 
 class ErrorA extends Error {}
 class ErrorB extends Error {}
@@ -68,6 +72,8 @@ console.log("flowConfusion", flowConfusion());
 // Part 3: Either implementation
 // =============================================================================
 
+// Learning goal: See how `Either` works by implementing it
+
 // export type Left<E> = // ...
 // export type Right<A> = // ...
 
@@ -87,6 +93,8 @@ console.log("flowConfusion", flowConfusion());
 // Part 4: Examples
 // =============================================================================
 
+// Learning goal: Use `Either`s to see what they're like.
+
 // -----------------------------------------------------------------------------
 // Using `Either`
 // -----------------------------------------------------------------------------
@@ -104,9 +112,13 @@ console.log("flowConfusion", flowConfusion());
 // Ergonomics: function composition with `flow`
 // -----------------------------------------------------------------------------
 
+// Learning goal: See why `flow` exists
+
 // -----------------------------------------------------------------------------
 // Differing error types
 // -----------------------------------------------------------------------------
+
+// Learning goal: Understand "widening" in `chain`
 
 // class FileMissingError extends Error {}
 
@@ -125,4 +137,8 @@ console.log("flowConfusion", flowConfusion());
 // Part 5: Etc
 // =============================================================================
 
+// Learning goal: Discuss some other useful functions now that we have a
+// "thingy" with two values possible
+
 // map, but for the error?
+// applying a function to each of the sides of an `Either`?

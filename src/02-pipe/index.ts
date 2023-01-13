@@ -1,8 +1,10 @@
-import { pipe } from "fp-ts/function";
-
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 // =============================================================================
 // Part 1: Simple examples
 // =============================================================================
+
+// Learning goal: See what a "pipeable" API is and how it's useful
 
 const firstExample = pipe(
   3,
@@ -33,11 +35,44 @@ console.log("secondExample", secondExample);
 // Part 2: How does `pipe` work?
 // =============================================================================
 
-// function myPipe // ...
+// Learning goal: get our hands dirty with the `pipe` implementation so we
+// understand how it works.
+
+// I AM TOO BRITTLE AND WEIRD! <= (Don't say on a first date)
+
+export function pipe(
+  a: number,
+  ab: (a: number) => number,
+  bc: (b: number) => number,
+): number;
+export function pipe(
+  a: number,
+  ab: (a: number) => number,
+  bc: (b: number) => number,
+  cd: (c: number) => number,
+  de: (d: number) => number,
+  ef: (e: number) => number,
+): number;
+export function pipe(
+  a: number,
+  ab: Function,
+  bc: Function,
+  cd?: Function,
+  de?: Function,
+  ef?: Function,
+): number {
+  if (typeof ef === "function") {
+    return ef(de!(cd!(bc(ab(a)))));
+  } else {
+    return bc(ab(a));
+  }
+}
 
 // =============================================================================
 // Part 3: Let's reimplement `map` and `chain`
 // =============================================================================
+
+// Learning goal: Understand why currying and `pipe` play well together.
 
 // export const map: //
 // export const chain: //

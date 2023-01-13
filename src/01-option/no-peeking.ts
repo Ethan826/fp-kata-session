@@ -29,15 +29,15 @@ export const chain = <A, B>(
   a: Option<A>,
 ): Option<B> => (isSome(a) ? func(a.value) : none);
 
-const processZip = (userId: number): string | null => {
-  const user = queryUserDatabase(userId);
-  if (user === null) return null;
+// const processZip = (userId: number): string | null => {
+//   const user = queryUserDatabase(userId);
+//   if (user === null) return null;
 
-  const { zipCode } = user;
+//   const { zipCode } = user;
 
-  if (typeof zipCode === "string") {
-    return zipCode.slice(0, 5);
-  } else {
-    return zipCode.toString().slice(0, 5);
-  }
-};
+//   if (typeof zipCode === "string") {
+//     return zipCode.slice(0, 5);
+//   } else {
+//     return zipCode.toString().slice(0, 5);
+//   }
+// };

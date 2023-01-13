@@ -79,13 +79,17 @@ declare function weirdQueryPurchaseDatabase(
 ): ReadonlyArray<WeirdPurchase>;
 
 // Implement me
-// const weirdGetGifteeLinkedIn = ...
+// (Psst... don't help by annotating return types yet)
+const weirdGetGifteeLinkedIn = (weirdPurchaseId: number) => {
+  throw new Error("Not implemented!");
+};
 
 // =============================================================================
 // Part 3. The `Option` type
 // =============================================================================
 
-// Learning goal: Implement the `Option` type and get the tests to pass.
+// Learning goal: Implement the `Option` type and get the tests to pass to
+// understand how it works in fp-ts and other languages/libraries.
 
 // type Some// ???
 // type None// ???
@@ -95,4 +99,4 @@ declare function weirdQueryPurchaseDatabase(
 // const none // ???
 
 // const map // ???
-// const flatMap // ???
+// const chain // ???

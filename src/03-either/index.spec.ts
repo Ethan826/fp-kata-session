@@ -5,7 +5,7 @@ import { chain, left, map, right } from "./no-peeking";
 
 const increment: (num: number) => number = (num) => num + 1;
 
-const invert: (num: number) => Either<string, number> = (num) =>
+const inverse: (num: number) => Either<string, number> = (num) =>
   num === 0 ? left("") : right(1.0 / num);
 
 describe(map, () => {
@@ -36,10 +36,10 @@ describe(chain, () => {
   it("returns a `Right` on success", () => {
     const result = pipe(
       right(3),
-      chain(invert),
-      chain(invert),
-      chain(invert),
-      chain(invert),
+      chain(inverse),
+      chain(inverse),
+      chain(inverse),
+      chain(inverse),
     );
 
     expect(result).toEqualRight(3);
@@ -48,10 +48,10 @@ describe(chain, () => {
   it("returns a `Left` on failure", () => {
     const result = pipe(
       left("Error"),
-      chain(invert),
-      chain(invert),
-      chain(invert),
-      chain(invert),
+      chain(inverse),
+      chain(inverse),
+      chain(inverse),
+      chain(inverse),
     );
 
     expect(result).toEqualLeft("Error");
@@ -63,8 +63,8 @@ describe("map and chain", () => {
     const result = pipe(
       right(3), //
       map(increment),
-      chain(invert),
-      chain(invert),
+      chain(inverse),
+      chain(inverse),
     );
 
     expect(result).toEqualRight(4);
@@ -74,8 +74,8 @@ describe("map and chain", () => {
     const result = pipe(
       left("Error"), //
       map(increment),
-      chain(invert),
-      chain(invert),
+      chain(inverse),
+      chain(inverse),
     );
 
     expect(result).toEqualLeft("Error");

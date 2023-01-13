@@ -3,7 +3,7 @@ import { chain, map, none, some } from "./no-peeking";
 
 const increment: (num: number) => number = (num) => num + 1;
 
-const invert: (num: number) => Option<number> = (num) =>
+const inverse: (num: number) => Option<number> = (num) =>
   num === 0 ? none : some(1.0 / num);
 
 describe(map, () => {
@@ -18,10 +18,10 @@ describe(map, () => {
 
 describe(chain, () => {
   it("returns the result of a function called on a `Some` in a `Some`", () => {
-    expect(chain(invert, some(2))).toEqual(some(0.5));
+    expect(chain(inverse, some(2))).toEqual(some(0.5));
   });
 
   it("returns `None` when called on a `None`", () => {
-    expect(chain(invert, none)).toEqual(none);
+    expect(chain(inverse, none)).toEqual(none);
   });
 });
