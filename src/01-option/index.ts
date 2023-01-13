@@ -24,16 +24,7 @@ const zip = queryUserDatabase(33).zipCode;
 const truncatedZip = zip.slice(0, 5);
 
 const processZip = (userId: number): string | null => {
-  const user = queryUserDatabase(userId);
-  if (user === null) return null;
-
-  const { zipCode } = user;
-
-  if (typeof zipCode === "string") {
-    return zipCode.slice(0, 5);
-  } else {
-    return zipCode.toString().slice(0, 5);
-  }
+  throw new Error("Not implemented");
 };
 
 // =============================================================================
