@@ -3,6 +3,8 @@
 // Part 1: Nullability with unions
 // =============================================================================
 
+// Learning goal: TypeScript handles nullable values like other union types
+
 type User = {
   readonly email: string;
   readonly zipCode: string | number;
@@ -24,12 +26,15 @@ const zip = queryUserDatabase(33).zipCode;
 const truncatedZip = zip.slice(0, 5);
 
 const processZip = (userId: number): string | null => {
-  throw new Error("Not implemented");
+  throw new Error("Not implemented!");
 };
 
 // =============================================================================
 // Part 2. Alternatives
 // =============================================================================
+
+// Learning goal: Consider other ways of modeling nullability that could reduce
+// boilerplate
 
 type Purchase = {
   readonly price: number;
@@ -77,8 +82,10 @@ declare function weirdQueryPurchaseDatabase(
 // const weirdGetGifteeLinkedIn = ...
 
 // =============================================================================
-// Part 3.
+// Part 3. The `Option` type
 // =============================================================================
+
+// Learning goal: Implement the `Option` type and get the tests to pass.
 
 // type Some// ???
 // type None// ???
